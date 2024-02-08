@@ -128,12 +128,12 @@ function createMarkUp(array) {
     .map(({ rating, name, burnedCalories, time, bodyPart, target }) => {
       return `<li class="WorkoutCard">
       <div class='CardHeader'>
-        <div class='RatingWrapper'>
-          <p>workout</p>
-          <p>${rating}</p>
-          <svg width='18' height='18'>
+        <div class='WorkoutWrapper'>
+          <p class='Workout'>workout</p>
+          <div class='RatingWrapper'><p>${rating}</p>
+          <svg class='StarIcon' width='13' height='13'>
           <use href='./img/symbol-defs.svg#icon-star'></use>
-        </svg>
+        </svg></div>
         </div>
         <div class='StartBtn'>
           <p>Start</p>
@@ -146,7 +146,7 @@ function createMarkUp(array) {
       <div class='RunIconWrapper'><svg width='14' height='14'>
           <use href='./img/symbol-defs.svg#icon-running'></use>
         </svg></div>
-        <p>${name}</p>
+        <p class='MainPartName'>${name}</p>
       </div>
       <ul class="CardFooter">
         <li>

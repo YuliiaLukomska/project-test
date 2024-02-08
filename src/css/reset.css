@@ -116,6 +116,7 @@ img {
 .CardMainPart {
   display: flex;
   margin-bottom: 12px;
+  align-items: center;
 }
 .CardFooter {
   display: flex;
@@ -123,8 +124,16 @@ img {
 }
 .StartBtn {
   display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #1b1b1b;
+  font-family: 'DM Sans';
+  font-size: 16px;
+  line-height: 1.5;
+  stroke: #1b1b1b;
+  fill: white;
 }
-.RatingWrapper {
+.WorkoutWrapper {
   display: flex;
 }
 .CardFooterTextDescr {
@@ -149,4 +158,39 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 16px;
+}
+.MainPartName::first-letter {
+  text-transform: uppercase;
+}
+.MainPartName {
+  color: #1b1b1b;
+  font-family: 'DM Sans';
+  font-size: 24px;
+  line-height: 1.33;
+}
+.Workout {
+  border-radius: 15px;
+  background-color: #7e847f;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  color: #f6f6f6;
+  font-family: 'DM Sans';
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  margin-right: 16px;
+}
+.RatingWrapper {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  color: #1b1b1b;
+  font-family: 'DM Sans';
+  font-size: 12px;
+  line-height: 1.5;
+  fill: #eea10c;
+}
+.StarIcon {
+  padding: 5px;
 }

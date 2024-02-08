@@ -96,12 +96,34 @@ img {
   background-color: rgba(165, 28, 28, 0.7);
 }
 
-/* .WorkoutCard {
+.WorkoutCard {
   height: 141px;
   width: 424px;
-} */
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 16px;
+}
 
 .ExerciseCategoryList {
   display: flex;
   flex-wrap: wrap;
+}
+.CardHeader {
+  display: flex;
+  margin-bottom: 29px;
+  justify-content: space-between;
+}
+.CardMainPart {
+  display: flex;
+  margin-bottom: 12px;
+}
+.CardFooter {
+  display: flex;
+  gap: 8px;
+}
+.StartBtn {
+  display: flex;
+}
+.RatingWrapper {
+  display: flex;
 }

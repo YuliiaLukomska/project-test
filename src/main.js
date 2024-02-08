@@ -70,7 +70,7 @@ function markupExercises(results) {
 
 exerciseFiltersList.addEventListener('click', onCardClick);
 
-function onCardClick(event) {
+async function onCardClick(event) {
   // if (event.target.nodeName !== 'LI') {
   //   return;
   // }
@@ -81,6 +81,27 @@ function onCardClick(event) {
   console.log(liEl);
   const filterValue = liEl.dataset.filter;
   const nameValue = liEl.dataset.name;
-  console.log(filterValue);
-  console.log(nameValue);
+  console.log(filterValue); //Muscles
+  console.log(nameValue); // abductors
+  try {
+    const data = await getExercisesByFilter(filterValue, nameValue);
+    // це буде масив об'єктів
+    // exerciseFiltersList.innerHTML = createMarkup(data);
+    console.log(data[0].target);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getExercisesByFilter(filterValue, nameValue) {
+  try {
+    const response = await axios.get(`${BASE_URL}/exercises`, {
+      params: {
+        filterValue: nameValue,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.log(error);
+  }
 }

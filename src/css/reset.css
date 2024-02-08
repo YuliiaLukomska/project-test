@@ -100,3 +100,8 @@ img {
   height: 141px;
   width: 424px;
 } */
+
+.ExerciseCategoryList {
+  display: flex;
+  flex-wrap: wrap;
+}

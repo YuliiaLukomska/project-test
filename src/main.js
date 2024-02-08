@@ -71,29 +71,30 @@ function markupExercises(results) {
 exerciseFiltersList.addEventListener('click', onCardClick);
 
 async function onCardClick(event) {
-  // if (event.target.nodeName !== 'LI') {
-  //   return;
-  // }
-  // const filterValue = event.target.dataset.filter;
-  // console.log(filterValue);
-  // console.log(event.target);
+  if (event.target === event.currentTarget) {
+    return;
+  }
+  // при кліку на картку додаємо клас до ul (бо він має інші стилі)
+  exerciseFiltersList.classList.add('ExerciseCategoryList');
+  // при кліку на картку шукаємо найближчий елемент у якого буде заданий селектор (це li)
   const liEl = event.target.closest('.ExercisesItem');
-  console.log(liEl);
+  // тепер можемо отримати li дата-атрибути
   const filterValue = liEl.dataset.filter;
   const nameValue = liEl.dataset.name;
   console.log(filterValue); //Muscles
   console.log(nameValue); // abductors
+  // передаємо ці атрибути в функцію , яка робить запит
   try {
     const data = await getExercisesByFilter(filterValue, nameValue);
     // це буде масив об'єктів
     exerciseFiltersList.innerHTML = createMarkUp(data);
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
 }
 
 async function getExercisesByFilter(filterValue, nameValue) {
+  // в запиті можливі три ключі, тому відповідно до значення фільтра пишемо цей ключ
   try {
     if (filterValue === 'Muscles') {
       const response = await axios.get(`${BASE_URL}/exercises`, {

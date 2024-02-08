@@ -130,21 +130,21 @@ function createMarkUp(array) {
         <div>
           <p>workout</p>
           <p>${rating}</p>
-          <svg>
-            <use></use>
-          </svg>
+          <svg width='18'>
+          <use href='./img/symbol-defs.svg#icon-star'></use>
+        </svg>
         </div>
         <div>
           <p>Start</p>
-          <svg>
-            <use></use>
-          </svg>
+          <svg width='13'>
+          <use href='./img/symbol-defs.svg#icon-arrow'></use>
+        </svg>
         </div>
       </div>
       <div>
-        <sgv>
-          <use href="./img/symbol-defs.svg#icon-running"></use>
-        </sgv>
+        <svg width='14'>
+          <use href='./img/symbol-defs.svg#icon-running'></use>
+        </svg>
         <p>${name}</p>
       </div>
       <ul class="DescriptionList">

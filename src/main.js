@@ -50,7 +50,11 @@ async function getExercises(filter = filterValueDefault) {
 function markupExercises(results) {
   const markup = results
     .map(
-      ({ name, filter, imgUrl }) => ` <li data-filter>
+      ({
+        name,
+        filter,
+        imgUrl,
+      }) => ` <li class='ExercisesItem' data-filter='${filter}' data-name='${name}'>
         <img class="img-exercises" src="${imgUrl}" alt="${filter}">
         <div>
           <p>${name}</p>
@@ -62,4 +66,21 @@ function markupExercises(results) {
   return markup;
   // треба іннерhtml, щоб при кліку відбувалась заміна розмітки, а не продовження
   // exerciseFiltersList.insertAdjacentHTML('beforeend', markup);
+}
+
+exerciseFiltersList.addEventListener('click', onCardClick);
+
+function onCardClick(event) {
+  // if (event.target.nodeName !== 'LI') {
+  //   return;
+  // }
+  // const filterValue = event.target.dataset.filter;
+  // console.log(filterValue);
+  // console.log(event.target);
+  const liEl = event.target.closest('.ExercisesItem');
+  console.log(liEl);
+  const filterValue = liEl.dataset.filter;
+  const nameValue = liEl.dataset.name;
+  console.log(filterValue);
+  console.log(nameValue);
 }

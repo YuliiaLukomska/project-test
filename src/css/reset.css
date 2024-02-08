@@ -127,3 +127,26 @@ img {
 .RatingWrapper {
   display: flex;
 }
+.CardFooterTextDescr {
+  color: rgba(27, 27, 27, 0.4);
+  font-family: 'DM Sans';
+  font-size: 12px;
+  line-height: 1.5;
+}
+.CardFooterTextValue {
+  color: #1b1b1b;
+  font-family: 'DM Sans';
+  font-size: 12px;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+.RunIconWrapper {
+  width: 24px;
+  height: 24px;
+  fill: #f6f6f6;
+  background-color: #7e847f;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

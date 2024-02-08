@@ -143,20 +143,20 @@ function createMarkUp(array) {
         </div>
       </div>
       <div class='CardMainPart'>
-        <svg width='14' height='14'>
+      <div class='RunIconWrapper'><svg width='14' height='14'>
           <use href='./img/symbol-defs.svg#icon-running'></use>
-        </svg>
+        </svg></div>
         <p>${name}</p>
       </div>
       <ul class="CardFooter">
         <li>
-          <p>Burned calories: <span>${burnedCalories} / ${time} min</span></p>
+          <p class='CardFooterTextDescr'>Burned calories: <span class='CardFooterTextValue'>${burnedCalories} / ${time} min</span></p>
         </li>
         <li>
-          <p>Body part: <span>${bodyPart}</span></p>
+          <p class='CardFooterTextDescr'>Body part: <span class='CardFooterTextValue'>${bodyPart}</span></p>
         </li>
         <li>
-          <p>Target: <span>${target}</span></p>
+          <p class='CardFooterTextDescr'>Target: <span class='CardFooterTextValue'>${target}</span></p>
         </li>
       </ul>
     </li>`;

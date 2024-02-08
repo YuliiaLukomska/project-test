@@ -38,7 +38,7 @@ async function getExercises(filter = filterValueDefault) {
       params: {
         filter: filter,
         page: 1,
-        limit: 8,
+        limit: 20,
       },
     });
     return response.data.results;
@@ -86,8 +86,8 @@ async function onCardClick(event) {
   try {
     const data = await getExercisesByFilter(filterValue, nameValue);
     // це буде масив об'єктів
-    // exerciseFiltersList.innerHTML = createMarkup(data);
-    console.log(data[0].target);
+    exerciseFiltersList.innerHTML = createMarkUp(data);
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -95,13 +95,71 @@ async function onCardClick(event) {
 
 async function getExercisesByFilter(filterValue, nameValue) {
   try {
-    const response = await axios.get(`${BASE_URL}/exercises`, {
-      params: {
-        filterValue: nameValue,
-      },
-    });
-    return response.data.results;
+    if (filterValue === 'Muscles') {
+      const response = await axios.get(`${BASE_URL}/exercises`, {
+        params: {
+          muscles: nameValue,
+        },
+      });
+      return response.data.results;
+    } else if (filterValue === 'Body parts') {
+      const response = await axios.get(`${BASE_URL}/exercises`, {
+        params: {
+          bodypart: nameValue,
+        },
+      });
+      return response.data.results;
+    } else {
+      const response = await axios.get(`${BASE_URL}/exercises`, {
+        params: {
+          equipment: nameValue,
+        },
+      });
+      return response.data.results;
+    }
   } catch (error) {
     console.log(error);
   }
+}
+
+function createMarkUp(array) {
+  const markup = array
+    .map(({ rating, name, burnedCalories, time, bodyPart, target }) => {
+      return `<li class="WorkoutCard">
+      <div>
+        <div>
+          <p>workout</p>
+          <p>${rating}</p>
+          <svg>
+            <use></use>
+          </svg>
+        </div>
+        <div>
+          <p>Start</p>
+          <svg>
+            <use></use>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <sgv>
+          <use href="./img/symbol-defs.svg#icon-running"></use>
+        </sgv>
+        <p>${name}</p>
+      </div>
+      <ul class="DescriptionList">
+        <li>
+          <p>Burned calories: <span>${burnedCalories} / ${time} min</span></p>
+        </li>
+        <li>
+          <p>Body part: <span>${bodyPart}</span></p>
+        </li>
+        <li>
+          <p>Target: <span>${target}</span></p>
+        </li>
+      </ul>
+    </li>`;
+    })
+    .join('');
+  return markup;
 }
